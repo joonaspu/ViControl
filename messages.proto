@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+message Point {
+    sint32 x = 1;
+    sint32 y = 2;
+}
+
+message Request {
+    // Whether the response should include a screenshot of the current frame
+    bool get_image = 1;
+
+    // Quality of the compressed image (0-100)
+    uint32 quality = 2;
+
+    // Name of the window to take screenshot of
+    // If empty, capture the whole display
+    // Note: On Windows, this is the process name (for example mygame.exe)
+    //       On Linux/X11, this is the WM_NAME property of the window
+    //       On macOS, this is the name displayed in the window title
+    string process_name = 3;
+
+    // Which keys should be released and pressed (see keys.cpp for a list of the key names)
+    repeated string press_keys = 4;
+    repeated string release_keys = 5;
+
+    // Mouse movement in pixels
+    Point mouse = 6;
+
+    // Whether the response should include the currently pressed keys
+    bool get_keys = 7;
+
+    // Whether the response should include mouse movement
+    bool get_mouse = 8;
+
+    // If this is set, press_keys and release_keys will be ignored if
+    // the user is pressing any keys manually
+    bool allow_user_override = 9;
+}
+
+message Response {
+    // Possible error message, empty string means no errors
+    string error = 1;
+
+    // Screenshot of the display (jpg)
+    bytes image = 2;
+
+    // List of keys that were down at some point since the previous request
+    repeated string pressed_keys = 3;
+
+    // Mouse movement in pixels since the previous request
+    Point mouse = 4;
+}

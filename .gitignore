@@ -1,0 +1,17 @@
+# Output binaries
+bin/
+*.exe
+
+# Saved screenshots
+*.jpg
+
+# VS Code config
+.vscode/
+
+# Compiled protobuf code
+*_pb2.py
+*.pb.cc
+*.pb.h
+
+# pycache
+*__pycache__*
