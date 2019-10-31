@@ -21,7 +21,7 @@ Inspired by [SerpentAI](https://github.com/SerpentAI/SerpentAI) and initially de
 
 ## Usage
 
-Before starting, you should either download prebuilt binaries (recommended on Windows) or [build the project yourself](#installation).
+Before starting, you should either [download prebuilt binaries](https://github.com/joonaspu/ViControl/releases/latest) (recommended on Windows) or [build the project yourself](#installation).
 
 If you just want to get started quickly with Python, you can use [examples/connection.py](examples/connection.py) to 
 automatically start the binary and connect to it without worrying about sockets or protobuf.
