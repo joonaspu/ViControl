@@ -1,0 +1,15 @@
+name: Linux build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: install dependencies
+      run: apt install libprotobuf-dev protobuf-compiler libturbojpeg0-dev libx11-dev libxext-dev libxtst-dev
+    - name: make
+      run: make linux
