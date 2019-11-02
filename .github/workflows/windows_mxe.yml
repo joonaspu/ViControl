@@ -10,12 +10,14 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: install MXE
-      run: git clone https://github.com/mxe/mxe.git
-      run: cd mxe
-      run: make cc protobuf
-      run: export PATH=$(pwd)/usr/bin:$PATH
-      run: export MXE_PROTOC=$(pwd)/usr/x86_64-pc-linux-gnu/bin/protoc
-      run: pwd
+      run: |
+        git clone https://github.com/mxe/mxe.git
+        cd mxe
+        make cc protobuf
+        export PATH=$(pwd)/usr/bin:$PATH
+        export MXE_PROTOC=$(pwd)/usr/x86_64-pc-linux-gnu/bin/protoc
+        pwd
     - name: make
-      run: cd ..
-      run: make windows
+      run: |
+        cd ..
+        make windows
