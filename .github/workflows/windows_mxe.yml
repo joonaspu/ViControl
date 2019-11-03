@@ -14,10 +14,11 @@ jobs:
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C6BF758A33A3A276
         sudo apt-add-repository 'deb https://pkg.mxe.cc/repos/apt/ bionic main'
         sudo apt -y install mxe-i686-w64-mingw32.static-cc mxe-i686-w64-mingw32.static-protobuf mxe-x86-64-pc-linux-gnu-protobuf
+    - name: make
+      run: |
         export PATH=/usr/lib/mxe/usr/bin:$PATH
         export MXE_PROTOC=/usr/lib/mxe/usr/x86_64-pc-linux-gnu/bin/protoc
-    - name: make
-      run: make windows
+        make windows
     - name: upload binary
       uses: actions/upload-artifact@v1
       with:
