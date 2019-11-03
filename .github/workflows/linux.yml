@@ -1,0 +1,25 @@
+name: Linux build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: install dependencies
+      run: sudo apt -y install libprotobuf-dev protobuf-compiler libturbojpeg0-dev libx11-dev libxext-dev libxtst-dev
+    - name: make
+      run: make linux
+    - name: upload binary
+      uses: actions/upload-artifact@v1
+      with:
+        name: bin
+        path: bin
+    - name: upload generated Python protobuf code
+      uses: actions/upload-artifact@v1
+      with:
+        name: python-protobuf
+        path: examples/messages_pb2.py
