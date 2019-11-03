@@ -13,3 +13,13 @@ jobs:
       run: brew install protobuf
     - name: make
       run: make mac
+    - name: upload binary
+      uses: actions/upload-artifact@v1
+      with:
+        name: bin
+        path: bin
+    - name: upload generated Python protobuf code
+      uses: actions/upload-artifact@v1
+      with:
+        name: python-protobuf
+        path: examples/messages_pb2.py
