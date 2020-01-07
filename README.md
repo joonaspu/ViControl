@@ -24,7 +24,7 @@ Inspired by [SerpentAI](https://github.com/SerpentAI/SerpentAI) and initially de
 
 ## Usage
 
-Before starting, you should either [download prebuilt binaries](https://github.com/joonaspu/ViControl/releases/latest) (recommended on Windows) or [build the project yourself](#installation).
+Before starting, you should either [download prebuilt binaries](https://github.com/joonaspu/ViControl/releases/latest) or [build the project yourself](#installation).
 
 If you just want to get started quickly with Python, you can use [examples/connection.py](examples/connection.py) to 
 automatically start the binary and connect to it without worrying about sockets or protobuf.
@@ -86,6 +86,14 @@ This allows you to, for example, make fast input requests to one instance while 
 ## Installation
 
 ### Windows
+#### Visual Studio (recommended)
+* Install Visual Studio (tested with 2019, other versions may work too)
+* Install [vcpkg](https://github.com/microsoft/vcpkg) and use it to install protobuf
+    * `vcpkg install protobuf:x64-windows` or `vcpkg install protobuf:x86-windows` (or both) depending on if you want to build 64-bit or 32-bit binaries
+* Generate the protobuf code with `protoc.exe messages.proto --cpp_out=src --python_out=examples`
+    * Note: you can find `protoc.exe` in `[vcpkg path]\installed\x86-windows\tools\protobuf`
+* Open `ViControl.sln` in Visual Studio and build or run `MSBuild.exe ViControl.sln /p:Configuration=Release`
+
 #### MSYS2
 * Install [MSYS2](https://www.msys2.org/) according to the instructions
 * Install compiler and dependencies:
