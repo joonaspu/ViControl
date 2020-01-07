@@ -12,7 +12,7 @@ jobs:
     - name: install dependencies
       run: vcpkg install protobuf:x64-windows
     - name: generate protobuf code
-      run: "& ${env:VCPKG_INSTALLATION_ROOT}/installed/x86-windows/tools/protobuf/protoc.exe messages.proto --cpp_out=src --python_out=examples"
+      run: "& ${env:VCPKG_INSTALLATION_ROOT}/installed/x64-windows/tools/protobuf/protoc.exe messages.proto --cpp_out=src --python_out=examples"
     - name: find MSBuild
       run: $msbuild = & "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe" -latest -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe | select-object -first 1
     - name: run MSBuild
