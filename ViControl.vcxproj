@@ -92,7 +92,6 @@
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>gdiplus.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -127,7 +126,6 @@
     <ClInclude Include="src\keys.hpp" />
     <ClInclude Include="src\messages.pb.h" />
     <ClInclude Include="src\platform.hpp" />
-    <ClInclude Include="src\profiling.hpp" />
     <ClInclude Include="src\socket.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
