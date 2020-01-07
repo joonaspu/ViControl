@@ -1,0 +1,35 @@
+name: Windows build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: install dependencies
+      run: |
+        vcpkg integrate install
+        vcpkg install protobuf:x64-windows
+    - name: generate protobuf code
+      run: "& ${env:VCPKG_INSTALLATION_ROOT}/installed/x64-windows/tools/protobuf/protoc.exe messages.proto --cpp_out=src --python_out=examples"
+    - name: run MSBuild
+      run: "& 'C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe' ViControl.sln /p:Configuration=Release /p:Platform=x64"
+    - name: copy binaries
+      run: |
+        mkdir bin
+        cp .\x64\Release\ViControl.exe .\bin\main.exe
+        cp .\x64\Release\libprotobuf.dll .\bin
+        cp .\x64\Release\libprotobuf-lite.dll .\bin
+    - name: upload binary
+      uses: actions/upload-artifact@v1
+      with:
+        name: bin
+        path: bin
+    - name: upload generated Python protobuf code
+      uses: actions/upload-artifact@v1
+      with:
+        name: python-protobuf
+        path: examples/messages_pb2.py

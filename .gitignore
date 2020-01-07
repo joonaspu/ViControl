@@ -8,6 +8,11 @@ bin/
 # VS Code config
 .vscode/
 
+# Visual Studio
+.vs/
+Debug/
+Release/
+
 # Compiled protobuf code
 *_pb2.py
 *.pb.cc
