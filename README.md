@@ -1,5 +1,5 @@
 # ViControl 
-![](https://github.com/joonaspu/ViControl/workflows/Windows%20%28MXE%29%20build/badge.svg)
+![](https://github.com/joonaspu/ViControl/workflows/Windows%20build/badge.svg)
 ![](https://github.com/joonaspu/ViControl/workflows/Linux%20build/badge.svg)
 ![](https://github.com/joonaspu/ViControl/workflows/macOS%20build/badge.svg)
 
