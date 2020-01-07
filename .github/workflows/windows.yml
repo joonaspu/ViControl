@@ -10,7 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: install dependencies
-      run: vcpkg install protobuf:x64-windows
+      run: |
+        vcpkg integrate install
+        vcpkg install protobuf:x64-windows
     - name: generate protobuf code
       run: "& ${env:VCPKG_INSTALLATION_ROOT}/installed/x64-windows/tools/protobuf/protoc.exe messages.proto --cpp_out=src --python_out=examples"
     - name: run MSBuild
