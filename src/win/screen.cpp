@@ -50,7 +50,7 @@ unsigned long getJPGScreenshot(std::string* processName, char** imageBuffer,
     // Process name is new
     } else {
         // Enumerate through windows
-        WINBOOL enumStatus =
+        bool enumStatus =
             EnumWindows((WNDENUMPROC) enumWindowsCallback, (LPARAM) &params);
         if (enumStatus == TRUE) {
             END_TIMER("takeScreenshot");

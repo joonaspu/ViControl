@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 
+#include "messages.pb.h"
+
 #include "socket.hpp"
 #include "platform.hpp"
-
-#include "messages.pb.h"
 
 #ifdef PROFILING
     #include "profiling.hpp"
